@@ -1,17 +1,23 @@
 #! /usr/bin/env node
+/* eslint-disable import/no-dynamic-require */
 
-const path = require('path')
-    , packageJson = require(path.join(process.cwd(), 'package.json'))
-    , childProcess = require('child_process')
+const path = require("path")
+
+const packageJson = require(path.join(process.cwd(), "package.json"))
+const childProcess = require("child_process")
 
 const deps = packageJson.envDependencies || {}
 
-const packages = Object.keys(deps).map(key =>
-  deps[key].replace(/\${([0-9a-zA-Z_]*)}/g, x => process.env[x.substring(2, x.length - 1)])
-).join(' ')
-
-console.log(packages)
-
+const packages = Object.keys(deps)
+	.map(key =>
+		deps[key].replace(/\${([0-9a-zA-Z_]*)}/g, x => {
+			return process.env[x.substring(2, x.length - 1)]
+		})
+	)
+	.join(" ")
 try {
-  childProcess.execSync('yarn add --dev ' + packages + ' && yarn remove ' + packages, { stdio:[0, 1, 2] })
-} catch (e) { }
+	childProcess.execSync(`yarn add --dev ${packages} && yarn remove ${packages}`, {
+		stdio: [0, 1, 2]
+	})
+	// eslint-disable-next-line no-empty
+} catch (e) {}

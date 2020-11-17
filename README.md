@@ -1,6 +1,8 @@
 # env-install
 
-Using private git repositories that requires authentication is often necessary when running npm install, but you don't want to put keys, tokens or passwords in your code, so instead you can use this module that allows you to define packages with environment variable names to inject your keys, passwords or tokens.
+**This is a fork of https://github.com/porsager/env-install which targets yarn users and fixes some issues.**
+
+Using private git repositories that requires authentication is often necessary when running `yarn`, but you don't want to put keys, tokens or passwords in your code, so instead you can use this module that allows you to define packages with environment variable names to inject your keys, passwords or tokens.
 
 ## Usage
 
@@ -12,15 +14,16 @@ scripts: {
     "postinstall": "env-install"
 },
 dependencies: {
-    "env-install": "1.0.0"
+    "env-install": "git+https://github.com/hendriku/env-install.git#1.0.0"
 },
 envDependencies: {
-    "some-secret-module": "git+https://${GITHUB_TOKEN}:x-oauth-basic@github.com/you/privaterepo"
+    "some-secret-module": "git+https://oauth2:${GITHUB_TOKEN@your.github.com/you/privaterepo"
 }
 ```
 
 In the above example `some-secret-module` will be installed like this:
+
 ```
 GITHUB_TOKEN=abcdefg123456
-npm install https://abcdefg123456:x-oauth-basic@github.com/you/privaterepo
+yarn add https://abcdefg123456:x-oauth-basic@github.com/you/privaterepo
 ```

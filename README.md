@@ -19,7 +19,7 @@ dependencies: {
     "env-install": "git+https://github.com/hendriku/env-install.git#1.0.4"
 },
 envDependencies: {
-    "some-secret-module": "git+https://oauth2:${GITHUB_TOKEN@your.github.com/you/privaterepo"
+    "some-secret-module": "git+https://oauth2:${GITHUB_TOKEN}@your.github.com/you/privaterepo"
 }
 ```
 

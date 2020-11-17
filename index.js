@@ -10,6 +10,8 @@ const packages = Object.keys(deps).map(key =>
   deps[key].replace(/\${([0-9a-zA-Z_]*)}/g, (_, x) => process.env[x])
 ).join(' ')
 
+console.log(packages)
+
 try {
-  childProcess.execSync('npm install --no-save ' + packages, { stdio:[0, 1, 2] })
+  childProcess.execSync('yarn add --dev ' + packages + ' && yarn remove ' + packages, { stdio:[0, 1, 2] })
 } catch (e) { }

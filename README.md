@@ -13,13 +13,13 @@ Then declare your dependencies containing environment variables in `envDependenc
 
 ```
 scripts: {
-    "test -n \"$NOYARNPOSTINSTALL\" || env-install"
+    "postinstall": "test -n \"$NOYARNPOSTINSTALL\" || env-install"
 },
 dependencies: {
     "env-install": "git+https://github.com/hendriku/env-install.git#1.0.4"
 },
 envDependencies: {
-    "some-secret-module": "git+https://oauth2:${GITHUB_TOKEN@your.github.com/you/privaterepo"
+    "some-secret-module": "git+https://oauth2:${GITHUB_TOKEN}@your.github.com/you/privaterepo"
 }
 ```
 

@@ -16,7 +16,7 @@ const packages = Object.keys(deps)
 	)
 	.join(" ")
 try {
-	childProcess.execSync(`yarn add --dev ${packages} && yarn remove ${packages}`, {
+	childProcess.execSync(`NOYARNPOSTINSTALL=1 yarn add --dev ${packages} && yarn remove ${packages}`, {
 		stdio: [0, 1, 2]
 	})
 	// eslint-disable-next-line no-empty

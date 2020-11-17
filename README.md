@@ -13,7 +13,7 @@ Then declare your dependencies containing environment variables in `envDependenc
 
 ```
 scripts: {
-    "test -n \"$NOYARNPOSTINSTALL\" || env-install"
+    "postinstall": "test -n \"$NOYARNPOSTINSTALL\" || env-install"
 },
 dependencies: {
     "env-install": "git+https://github.com/hendriku/env-install.git#1.0.4"

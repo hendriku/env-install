@@ -14,7 +14,7 @@ const envPackages = Object.keys(deps).map(key => {
 		value: deps[key].replace(/\${([0-9a-zA-Z_]*)}/g, x => {
 			const varname = x.substring(2, x.length - 1)
 			const envreplacement = process.env[varname]
-			if (envreplacement) {
+			if (!envreplacement) {
 				console.error(varname + " is not available in env but used in the package.json")
 				process.exit(1)
 			}

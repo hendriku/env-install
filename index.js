@@ -16,6 +16,7 @@ const envPackages = Object.keys(deps).map(key => {
 		})
 	}
 })
+
 const envValues = envPackages.map(pkg => pkg.value).join(" ")
 const envKeys = envPackages.map(pkg => pkg.key).join(" ")
 

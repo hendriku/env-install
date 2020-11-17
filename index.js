@@ -18,14 +18,10 @@ const envPackages = Object.keys(deps).map(key => {
 })
 
 const envValues = envPackages.map(pkg => pkg.value).join(" ")
-const envKeys = envPackages.map(pkg => pkg.key).join(" ")
 
 try {
-	childProcess.execSync(
-		`NOYARNPOSTINSTALL=1 yarn add --dev ${envValues} && yarn remove ${envKeys}`,
-		{
-			stdio: [0, 1, 2]
-		}
-	)
+	childProcess.execSync(`NOYARNPOSTINSTALL=1 yarn add-no-save ${envValues}`, {
+		stdio: [0, 1, 2]
+	})
 	// eslint-disable-next-line no-empty
 } catch (e) {}

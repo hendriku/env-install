@@ -28,5 +28,8 @@
   "bugs": {
     "url": "https://github.com/porsager/env-install/issues"
   },
-  "homepage": "https://github.com/porsager/env-install#readme"
+  "homepage": "https://github.com/porsager/env-install#readme",
+  "dependencies": {
+    "yarn-add-no-save": "^1.0.3"
+  }
 }

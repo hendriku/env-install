@@ -7,7 +7,7 @@ const path = require('path')
 const deps = packageJson.envDependencies || {}
 
 const packages = Object.keys(deps).map(key =>
-  deps[key].replace(/\${([0-9a-zA-Z_]*)}/g, (_, x) => process.env[x])
+  deps[key].replace(/\${([0-9a-zA-Z_]*)}/g, x => process.env[x.substring(2, x.length - 1)])
 ).join(' ')
 
 console.log(packages)

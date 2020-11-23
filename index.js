@@ -3,7 +3,6 @@
 const path = require("path")
 var stdout = require('mute-stdout');
 
-
 require("dotenv").config({ path: path.join(process.cwd(), ".env") })
 const packageJson = require(path.join(process.cwd(), "package.json"))
 const childProcess = require("child_process")

@@ -1,6 +1,8 @@
 #! /usr/bin/env node
 /* eslint-disable import/no-dynamic-require */
 const path = require("path")
+var stdout = require('mute-stdout');
+
 
 require("dotenv").config({ path: path.join(process.cwd(), ".env") })
 const packageJson = require(path.join(process.cwd(), "package.json"))
@@ -26,8 +28,6 @@ const envPackages = Object.keys(deps).map(key => {
 const envValues = envPackages.map(pkg => pkg.value ?? "").join(" ")
 
 try {
-	childProcess.execSync(`NOYARNPOSTINSTALL=1 yarn add-no-save -s ${envValues}`, {
-		stdio: [0, 1, 2]
-	})
+	childProcess.execSync(`NOYARNPOSTINSTALL=1 yarn add-no-save ${envValues}`)
 	// eslint-disable-next-line no-empty
 } catch (e) {}

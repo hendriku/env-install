@@ -1,6 +1,6 @@
 {
   "name": "env-install",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Install envDependencies from package.json using environment variable replacements",
   "bin": {
     "env-install": "index.js"
@@ -31,6 +31,7 @@
   "homepage": "https://github.com/porsager/env-install#readme",
   "dependencies": {
     "dotenv": "^8.2.0",
+    "mute-stdout": "^1.0.1",
     "yarn-add-no-save": "^1.0.3"
   }
 }

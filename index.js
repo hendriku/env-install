@@ -1,8 +1,8 @@
 #! /usr/bin/env node
 /* eslint-disable import/no-dynamic-require */
-
 const path = require("path")
 
+require("dotenv").config({ path: path.join(process.cwd(), ".env") })
 const packageJson = require(path.join(process.cwd(), "package.json"))
 const childProcess = require("child_process")
 

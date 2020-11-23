@@ -30,6 +30,7 @@
   },
   "homepage": "https://github.com/porsager/env-install#readme",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "yarn-add-no-save": "^1.0.3"
   }
 }
